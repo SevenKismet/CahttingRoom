@@ -39,7 +39,7 @@ io.on('connection',function(socket){
     });
     socket.on('disconncet',function(){
         //将断开的人从用户中删除
-             console.log('用户断开连接')
+             console.log(socket.nickname+'用户断开连接')
         users.splice(socket.userIndex,1);
         // 通知所有用户
         socket.broadcast.emit('system',socket.nickname,users.length,'logout');
