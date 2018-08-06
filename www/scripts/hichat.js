@@ -80,10 +80,10 @@ HiChat.prototype = {
             var msg = nickname + (type == 'login' ? '加入' : '离开');
             var p = document.createElement('p');
             p.textContent = msg;
-            document.getElementById('historyMsg').appendChild(p);
-            // 把所有人数显示到顶部
-            that._displayNewMsg('system ', msg, 'red');
-            document.getElementById('status').textContent = userCount + (userCount > 1 ? 'users' : 'user') + 'online';
+            // document.getElementById('historyMsg').appendChild(p);
+            that._displayNewMsg('系统消息 ', msg, 'red');
+             // 把所有人数显示到顶部
+            document.getElementById('status').textContent = userCount + (userCount > 1 ? 'users' : 'user') + '在线';
 
 
         })
@@ -120,7 +120,7 @@ HiChat.prototype = {
                  var file = this.files[0],
                      reader = new FileReader();
                  if (!reader) {
-                     that._displayNewMsg('system', '!your browser doesnt support fileReader', 'red');
+                     that._displayNewMsg('系统消息', '!your browser doesnt support fileReader', 'red');
                      this.value = '';
                      return;
                  };
@@ -218,9 +218,7 @@ document.getElementById('messageInput').addEventListener('keyup', function(e) {
 
 }, false);
     },
-    _displayNewMsg: function(user, msg, color) {
-
-     
+      _displayNewMsg: function(user, msg, color) {
 
             var container = document.getElementById('historyMsg'),
        
